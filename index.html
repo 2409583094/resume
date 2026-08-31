@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>吴梦鑫 · 个人简历</title>
+<style>
+:root {
+  --bg: #fff6f9;
+  --bg-soft: #fdeef4;
+  --card: #ffffff;
+  --text: #4a3540;
+  --text-soft: #8a6b7a;
+  --border: #f5dce6;
+  --primary: #ec6fa6;
+  --primary-2: #f39ec0;
+  --shadow: 0 10px 28px -14px rgba(236,111,166,0.30);
+  --gradient: linear-gradient(135deg, #f06ba8 0%, #f9b3cd 100%);
+  --gradient-soft: linear-gradient(135deg, rgba(240,107,168,0.10), rgba(249,179,205,0.14));
+  --radius: 14px;
+  --radius-sm: 8px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(240,107,168,0.08), transparent 38%),
+    radial-gradient(circle at 88% 18%, rgba(249,179,205,0.10), transparent 40%);
+  pointer-events: none; z-index: 0;
+}
+
+/* 导航 */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 6vw;
+  background: rgba(255,246,249,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-brand {
+  font-weight: 800; font-size: 1.05rem; letter-spacing: .5px;
+  background: var(--gradient); -webkit-background-clip: text;
+  background-clip: text; color: transparent;
+}
+.nav-links { display: flex; gap: 4px; flex-wrap: wrap; }
+.nav-links a {
+  color: var(--text-soft); text-decoration: none; font-size: .9rem;
+  padding: 6px 12px; border-radius: 999px; font-weight: 500;
+  transition: all .2s ease;
+}
+.nav-links a:hover { color: var(--primary); background: var(--gradient-soft); }
+
+main { max-width: 1080px; margin: 0 auto; padding: 28px 6vw 40px; position: relative; z-index: 1; }
+
+/* 顶部卡片 */
+.hero {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px 36px;
+  box-shadow: var(--shadow);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ""; position: absolute; top: -70px; right: -70px;
+  width: 230px; height: 230px; border-radius: 50%;
+  background: var(--gradient); filter: blur(60px); opacity: .22;
+}
+.hero h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: 1px; margin-bottom: 6px; }
+.hero h1 span {
+  font-size: .55em; color: var(--text-soft); font-weight: 500; letter-spacing: 2px;
+}
+.hero .role {
+  font-size: 1.02rem; font-weight: 600;
+  background: var(--gradient); -webkit-background-clip: text;
+  background-clip: text; color: transparent; margin-bottom: 14px;
+}
+.hero .summary { color: var(--text-soft); max-width: 720px; margin-bottom: 18px; font-size: .96rem; }
+.badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.badge {
+  font-size: .82rem; padding: 5px 13px; border-radius: 999px;
+  background: var(--gradient-soft); color: var(--primary);
+  border: 1px solid var(--border); font-weight: 600;
+}
+.contact-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.contact-row a {
+  display: inline-block; padding: 9px 18px; border-radius: 999px;
+  font-size: .88rem; font-weight: 600; text-decoration: none;
+  border: 1px solid var(--border); color: var(--text);
+  background: var(--card); transition: all .2s ease;
+}
+.contact-row a:hover { color: var(--primary); border-color: var(--primary); }
+
+/* 通用区块 */
+.section { margin-top: 48px; }
+.section-title {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 1.3rem; font-weight: 800; margin-bottom: 20px;
+}
+.section-title::before {
+  content: ""; width: 6px; height: 24px; border-radius: 4px;
+  background: var(--gradient);
+}
+.sub-title {
+  font-size: 1rem; font-weight: 700; color: var(--primary);
+  margin: 18px 0 10px;
+}
+
+/* 亮点成果 */
+.highlights { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.highlight-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px 18px;
+  transition: all .2s ease;
+}
+.highlight-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--primary-2); }
+.highlight-num {
+  font-size: 1.7rem; font-weight: 800; line-height: 1;
+  background: var(--gradient); -webkit-background-clip: text;
+  background-clip: text; color: transparent;
+}
+.highlight-label { font-size: .84rem; color: var(--text-soft); margin-top: 8px; }
+
+/* 经历卡片 */
+.exp-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 22px 24px; margin-bottom: 14px;
+  transition: all .2s ease;
+}
+.exp-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.exp-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  flex-wrap: wrap; gap: 6px; margin-bottom: 4px;
+}
+.exp-title { font-size: 1.05rem; font-weight: 700; }
+.exp-org { color: var(--primary); font-weight: 600; }
+.exp-meta { font-size: .82rem; color: var(--text-soft); }
+.exp-list { list-style: none; margin-top: 10px; }
+.exp-list li {
+  position: relative; padding-left: 20px; margin-bottom: 8px;
+  font-size: .9rem; color: var(--text-soft); line-height: 1.65;
+}
+.exp-list li::before {
+  content: ""; position: absolute; left: 4px; top: 9px;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--gradient);
+}
+.exp-list strong { color: var(--text); font-weight: 700; }
+
+/* 项目卡片 */
+.proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.proj-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px;
+  transition: all .2s ease;
+}
+.proj-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--primary-2); }
+.proj-title { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+.proj-tag { font-size: .78rem; color: var(--primary); font-weight: 600; margin-bottom: 8px; }
+.proj-desc { font-size: .87rem; color: var(--text-soft); }
+
+/* 技能矩阵 */
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.skill-block {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px 20px;
+}
+.skill-block h4 {
+  font-size: .94rem; font-weight: 700; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.skill-block h4 .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gradient); }
+.skill-row { margin-bottom: 10px; }
+.skill-row:last-child { margin-bottom: 0; }
+.skill-row .name {
+  display: flex; justify-content: space-between;
+  font-size: .84rem; margin-bottom: 4px;
+}
+.bar { height: 7px; border-radius: 999px; background: var(--bg-soft); overflow: hidden; }
+.bar > span { display: block; height: 100%; border-radius: 999px; background: var(--gradient); }
+.chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.chip {
+  font-size: .78rem; padding: 5px 11px; border-radius: 999px;
+  background: var(--gradient-soft); color: var(--primary); font-weight: 600;
+  border: 1px solid var(--border);
+}
+
+/* 教育与证书 */
+.edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.edu-card, .cert-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px;
+}
+.edu-card h4, .cert-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+.edu-card .meta, .cert-card .meta { font-size: .82rem; color: var(--text-soft); margin-bottom: 10px; }
+.edu-card p, .cert-card p { font-size: .87rem; color: var(--text-soft); margin-bottom: 4px; }
+.cert-images { display: flex; gap: 12px; margin-top: 12px; flex-wrap: wrap; }
+.cert-images a { display: block; }
+.cert-images img {
+  width: 150px; height: 100px; object-fit: cover;
+  border-radius: var(--radius-sm); border: 1px solid var(--border);
+  transition: all .2s ease;
+}
+.cert-images img:hover { transform: scale(1.04); box-shadow: var(--shadow); }
+
+/* 自我评价 */
+.eval-card {
+  background: var(--gradient-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 26px;
+  font-size: .93rem; line-height: 1.85;
+}
+.eval-card::before {
+  content: "\201C"; font-size: 2.6rem; color: var(--primary);
+  opacity: .4; line-height: 0; vertical-align: -.4em; margin-right: 6px;
+}
+.contact-line {
+  margin-top: 16px; text-align: center;
+  color: var(--text-soft); font-size: .88rem;
+}
+
+footer {
+  margin-top: 48px; padding: 22px 6vw;
+  text-align: center; font-size: .82rem; color: var(--text-soft);
+  border-top: 1px solid var(--border);
+}
+
+/* 打印 */
+@media print {
+  .nav { display: none; }
+  body::before { display: none; }
+  main { padding-top: 10px; max-width: 100%; }
+  .exp-card, .proj-card, .skill-block, .edu-card, .cert-card { box-shadow: none; break-inside: avoid; }
+}
+
+@media (max-width: 900px) {
+  .highlights { grid-template-columns: repeat(2, 1fr); }
+  .proj-grid { grid-template-columns: 1fr; }
+  .skills-grid, .edu-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .hero { padding: 28px 22px; }
+  .highlights { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand">吴梦鑫 · WU MENGXIN</div>
+  <div class="nav-links">
+    <a href="#highlights">亮点</a>
+    <a href="#experience">经历</a>
+    <a href="#projects">项目</a>
+    <a href="#skills">技能</a>
+    <a href="#education">教育</a>
+    <a href="#contact">联系</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- 顶部 -->
+  <section class="hero" id="hero">
+    <h1>吴梦鑫 <span>WU MENGXIN</span></h1>
+    <div class="role">日语专业本科生 · 班级临时负责人 · 数字化学习者</div>
+    <p class="summary">福建师范大学日语专业在读，兼具文科底蕴与数字素养。长期艺术训练沉淀专注与审美，连续12年班干部经历锤炼组织协调力，掌握 Trae Vibcoding 等数字化工具。期待在竞赛与实战中持续成长，与团队共同进步。</p>
+    <div class="badges">
+      <span class="badge">日语跨文化沟通</span>
+      <span class="badge">班级管理</span>
+      <span class="badge">Trae Vibcoding</span>
+      <span class="badge">钢琴8级</span>
+      <span class="badge">马术6年</span>
+      <span class="badge">活动策划</span>
+    </div>
+    <div class="contact-row">
+      <a href="tel:13706980338">13706980338</a>
+      <a href="mailto:2409583094@qq.com">2409583094@qq.com</a>
+    </div>
+  </section>
+
+  <!-- 亮点成果 -->
+  <section class="section" id="highlights">
+    <div class="section-title">亮点成果</div>
+    <div class="highlights">
+      <div class="highlight-card">
+        <div class="highlight-num">50+</div>
+        <div class="highlight-label">统筹班级人数，事务响应效率提升40%</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-num">100+</div>
+        <div class="highlight-label">处理学生诉求项次，问题解决率100%</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-num">12年</div>
+        <div class="highlight-label">连续担任班干部，累计服务超2000小时</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-num">4项</div>
+        <div class="highlight-label">完成轻量级代码项目，获社区导师认可</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-num">6项</div>
+        <div class="highlight-label">完成浪尖社区学习任务，累计20+小时</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 经历 -->
+  <section class="section" id="experience">
+    <div class="section-title">经历</div>
+
+    <div class="sub-title">班级工作</div>
+    <div class="exp-card">
+      <div class="exp-head">
+        <div><span class="exp-title">班级临时负责人</span> · <span class="exp-org">福建师范大学日语专业</span></div>
+        <div class="exp-meta">2025.09 – 至今</div>
+      </div>
+      <ul class="exp-list">
+        <li><strong>统筹协调：</strong>负责50人班级的日常管理、信息传达与活动组织，建立"通知-反馈-复盘"闭环机制，班级事务响应效率提升约40%</li>
+        <li><strong>活动策划：</strong>主导班级破冰活动与主题班会，参与率达95%+，班级凝聚力测评位居年级前列</li>
+        <li><strong>师生沟通：</strong>搭建师生双向沟通渠道，累计处理学生诉求100+项，问题解决率100%</li>
+        <li><strong>学风建设：</strong>组织日语晨读与学习互助小组，带动班级平均出勤率提升至98%</li>
+      </ul>
+    </div>
+    <div class="exp-card">
+      <div class="exp-head">
+        <div><span class="exp-title">班干部（连续12年）</span> · <span class="exp-org">中小学阶段</span></div>
+        <div class="exp-meta">2013 – 2025</div>
+      </div>
+      <ul class="exp-list">
+        <li><strong>组织管理：</strong>从小学至高中连续担任班干部，累计服务时长超2000小时，形成稳定的组织管理与团队协作能力</li>
+        <li><strong>活动统筹：</strong>多次牵头组织校级文艺汇演、运动会及志愿服务活动，单场活动覆盖人数最高达500人</li>
+        <li><strong>师生桥梁：</strong>作为师生桥梁协调班级事务，所在班级多次获评"优秀班集体"</li>
+      </ul>
+    </div>
+
+    <div class="sub-title">社区学习</div>
+    <div class="exp-card">
+      <div class="exp-head">
+        <div><span class="exp-title">浪尖社区学习项目</span> · <span class="exp-org">社区成员</span></div>
+        <div class="exp-meta">2026.08 – 至今</div>
+      </div>
+      <ul class="exp-list">
+        <li><strong>深度学习：</strong>跟随浪尖社区系统学习人际沟通、AI、整体规划方向知识与实战技能，完成社区学习任务6项，学习时长累计超20小时</li>
+        <li><strong>技术实践：</strong>运用 Trae Vibcoding 完成4个轻量级代码项目，涵盖音乐、游戏领域，项目交付质量获社区导师认可</li>
+        <li><strong>目标规划：</strong>计划参与大学竞赛，以赛促学、以赛会友，在实战中持续提升综合竞争力</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 项目经历 -->
+  <section class="section" id="projects">
+    <div class="section-title">项目经历</div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-title">音乐主题交互项目</div>
+        <div class="proj-tag">Trae Vibcoding · 音频交互</div>
+        <div class="proj-desc">基于 Trae Vibcoding 完成的音乐领域轻量级代码项目，融合个人钢琴与大提琴艺术素养，实现可交互的音乐展示与节奏体验。</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-title">轻量游戏 Demo</div>
+        <div class="proj-tag">Trae Vibcoding · 游戏逻辑</div>
+        <div class="proj-desc">运用 Vibcoding 搭建的小型游戏项目，涵盖基础玩法逻辑与界面交互，获得浪尖社区导师认可。</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-title">班级管理系统雏形</div>
+        <div class="proj-tag">Trae Vibcoding · 自动化流程</div>
+        <div class="proj-desc">结合班级临时负责人工作经验，尝试以数字化方式实现通知传达与反馈闭环的轻量方案。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 技能矩阵 -->
+  <section class="section" id="skills">
+    <div class="section-title">技能矩阵</div>
+    <div class="skills-grid">
+      <div class="skill-block">
+        <h4><span class="dot"></span>语言能力</h4>
+        <div class="skill-row">
+          <div class="name"><span>中文</span><span>100%</span></div>
+          <div class="bar"><span style="width:100%"></span></div>
+        </div>
+        <div class="skill-row">
+          <div class="name"><span>日语（JLPT N2 备考中）</span><span>55%</span></div>
+          <div class="bar"><span style="width:55%"></span></div>
+        </div>
+        <div class="skill-row">
+          <div class="name"><span>英语（CET-4）</span><span>60%</span></div>
+          <div class="bar"><span style="width:60%"></span></div>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4><span class="dot"></span>数字工具</h4>
+        <div class="skill-row">
+          <div class="name"><span>Word / Excel / PPT</span><span>85%</span></div>
+          <div class="bar"><span style="width:85%"></span></div>
+        </div>
+        <div class="skill-row">
+          <div class="name"><span>Trae Vibcoding</span><span>65%</span></div>
+          <div class="bar"><span style="width:65%"></span></div>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4><span class="dot"></span>兴趣特长</h4>
+        <div class="chips">
+          <span class="chip">钢琴（业余8级）</span>
+          <span class="chip">大提琴</span>
+          <span class="chip">毛笔书法</span>
+          <span class="chip">朗诵</span>
+          <span class="chip">马术（6年）</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4><span class="dot"></span>综合素养</h4>
+        <div class="chips">
+          <span class="chip">组织协调</span>
+          <span class="chip">活动策划</span>
+          <span class="chip">跨文化沟通</span>
+          <span class="chip">团队协作</span>
+          <span class="chip">专注力</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 教育与证书 -->
+  <section class="section" id="education">
+    <div class="section-title">教育与证书</div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <h4>福建师范大学</h4>
+        <div class="meta">日语专业（本科在读） · 2026.09 – 至今</div>
+        <p>主修日语语言文学，系统掌握听、说、读、写、译五项核心技能；兼修跨文化沟通与日本社会文化课程，构建"语言+文化+商业"复合知识体系。入学即担任班级临时负责人，协调50名同学的日常事务与活动组织。</p>
+      </div>
+      <div class="cert-card">
+        <h4>专业证书</h4>
+        <div class="meta">达摩院 · 人工智能训练师</div>
+        <p>· 达摩院「人工智能训练师」初级证书</p>
+        <p>· 达摩院「人工智能训练师」高级证书</p>
+        <div class="cert-images">
+          <a href="1.jpg" target="_blank"><img src="1.jpg" alt="达摩院「人工智能训练师」初级证书" loading="lazy"></a>
+          <a href="2.jpg" target="_blank"><img src="2.jpg" alt="达摩院「人工智能训练师」高级证书" loading="lazy"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 自我评价 -->
+  <section class="section" id="contact">
+    <div class="section-title">自我评价</div>
+    <div class="eval-card">兼具文科底蕴与数字素养——日语专业背景赋予跨文化洞察与表达力，长期艺术训练沉淀专注与审美，班干部经历锤炼组织协调力，Trae Vibcoding 等工具掌握则补齐数字化能力短板。具备强烈的学习驱动力与团队协作精神，期待在竞赛与实战中持续成长，与团队共同进步。</div>
+    <div class="contact-line">
+      13706980338 ｜ 2409583094@qq.com ｜ 18岁 ｜ 互联网运营 / 跨文化沟通 / 内容策划
+    </div>
+  </section>
+
+</main>
+
+<footer>© 2026 吴梦鑫 · 最后更新 2026.08.31</footer>
+
+</body>
+</html>
